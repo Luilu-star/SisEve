@@ -1,0 +1,121 @@
+.cadastro-page{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#fff;
+}
+
+.cadastro-card{
+width:450px;
+height:550px;
+padding:52px 30px;
+border:1px solid #287640;
+border-radius:8px;
+box-sizing:border-box;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.cadastro-card h1{
+margin:0 0 62px 0;
+font-size:38px;
+font-weight:700;
+color:#222;
+}
+
+.cadastro-input{
+width:380px;
+height:66px;
+border:1px solid #777;
+border-radius:8px;
+display:flex;
+align-items:center;
+padding:0 15px;
+box-sizing:border-box;
+margin-bottom:26px;
+}
+
+.cadastro-input i{
+font-size:19px;
+color:#555;
+margin-right:10px;
+}
+
+.cadastro-input input{
+width:100%;
+height:100%;
+border:0;
+outline:none;
+font-size:20px;
+background:transparent;
+}
+
+.cadastro-input input::placeholder{
+color:#666;
+}
+
+.cadastro-metodos{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:45px;
+margin-bottom:30px;
+}
+
+.cadastro-metodo{
+width:58px;
+height:58px;
+border:1px solid #777;
+border-radius:50%;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+padding:0;
+}
+
+.cadastro-metodo img{
+width:34px;
+height:34px;
+object-fit:contain;
+}
+
+.cadastro-metodo span{
+font-size:30px;
+font-weight:600;
+color:#285d93;
+}
+
+.cadastro-continuar{
+width:320px;
+height:58px;
+border:0;
+border-radius:11px;
+background:#287640;
+color:white;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+margin-bottom:39px;
+}
+
+.cadastro-termos{
+width:340px;
+display:flex;
+align-items:flex-start;
+gap:10px;
+font-size:13px;
+font-weight:600;
+line-height:1.4;
+color:#287640;
+}
+
+.cadastro-termos input{
+margin-top:2px;
+width:16px;
+height:16px;
+accent-color:#287640;
+}

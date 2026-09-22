@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.home {
+  min-height: 100vh;
+}
+
+.menu {
+  height: 68px;
+  border-bottom: 1px solid #555;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 80px;
+}
+
+.menu nav {
+  display: flex;
+  gap: 45px;
+}
+
+.menu a {
+  font-size: 20px;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu .ativo {
+  color: #286b3d;
+  text-decoration: underline;
+  text-underline-offset: 7px;
+}
+
+.home-conteudo {
+  background-image: url("../assets/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px 8%;
+}
+
+.login-card {
+  background: white;
+  width: 425px;
+  min-height: 560px;
+  border: 1px solid #286b3d;
+  border-radius: 8px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card h1 {
+  text-align: center;
+  color: #286b3d;
+  font-size: 34px;
+  margin: 0 0 42px;
+}
+
+.campo {
+  width: 100%;
+  height: 55px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+
+.campo i {
+  font-size: 17px;
+  color: #111;
+  width: 30px;
+}
+
+.campo input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.campo input::placeholder {
+  color: #777;
+}
+
+.olho {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.olho i {
+  width: auto;
+  color: #555;
+}
+
+.links-login {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.links-login button,
+.links-login a {
+  border: none;
+  background: none;
+  color: #286b3d;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.google-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.google-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #999;
+  color: #4285f4;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.google-login span {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 80%;
+  height: 52px;
+  margin: 20px auto 0;
+  border: none;
+  border-radius: 28px;
+  background: #286b3d;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #205c33;
+}
+
+.apresentacao {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  width: 330px;
+  height: 230px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.apresentacao p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: white;
+  margin: 0 0 25px;
+}
+
+.cadastro-button {
+  width: 270px;
+  height: 52px;
+  border: none;
+  border-radius: 28px;
+  background: #e94b3c;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cadastro-button:hover {
+  background: #d94032;
+}
+
+.apresentacao h2 {
+  margin-top: 48px;
+  font-size: 22px;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .home-conteudo {
+    flex-direction: column;
+  }
+
+  .apresentacao {
+    width: 100%;
+  }
+
+  .menu {
+    padding-right: 30px;
+  }
+}
