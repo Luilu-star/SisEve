@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import logo from "../assets/logo.png";
+import { User, Lock } from "lucide-react";
+import logo from "../../assets/logo.png";
+import Google from "../../assets/google.png";
 
 function Home() {
   const navigate = useNavigate();
   const [senhaVisivel, setSenhaVisivel] = useState(false);
-  const [professor, setProfessor] = useState(false);
 
   return (
+
     <div className="home">
       <header className="menu">
         <nav>
@@ -23,19 +25,20 @@ function Home() {
           <h1>LOGIN</h1>
 
           <div className="campo">
-            <i className="fa-solid fa-envelope"></i>
+            <User />
             <input
-              type={professor ? "text" : "email"}
-              placeholder={professor ? "SIAP" : "E-mail"}
+              type="text"
+              placeholder="E-mail ou SIAPE"
             />
           </div>
 
           <div className="campo">
-            <i className="fa-solid fa-lock"></i>
+            <Lock />
             <input
               type={senhaVisivel ? "text" : "password"}
               placeholder="Senha"
             />
+
             <button
               type="button"
               className="olho"
@@ -52,26 +55,27 @@ function Home() {
           </div>
 
           <div className="links-login">
-            <button
-              type="button"
-              onClick={() => setProfessor(!professor)}
-            >
-              {professor ? "Sou aluno" : "Sou professor"}
-            </button>
-
-            <a>Esqueci a senha</a>
+            <a href="#">Esqueci a senha</a>
           </div>
 
-          {!professor && (
-            <div className="google-login">
-              <button className="google-circle">G</button>
-              <span>Google</span>
-            </div>
-          )}
+          <button
+            type="button"
+            className="google-login"
+          >
+            <img src={Google} alt="Google" />
+            <span>Google</span>
+          </button>
 
-          <button className="login-button">Login</button>
+          <button
+            type="button"
+            className="login-button"
+          >
+            Login
+          </button>
         </section>
 
+
+        
         <section className="apresentacao">
           <img
             src={logo}
@@ -88,6 +92,7 @@ function Home() {
           </p>
 
           <button
+            type="button"
             className="cadastro-button"
             onClick={() => navigate("/cadastro?tipo=participante")}
           >
