@@ -215,3 +215,260 @@ body {
   font-size: 22px;
   color: white;
 }
+
+
+/* ==================== Recuperação de Senha ==================== */
+
+
+/*REDEFINIR SENHA*/
+.redefinir-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("../../assets/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* CARD */
+.redefinir-card {
+  width: 485px;
+  height: 650px;
+  padding: 40px 25px;
+  border: 1px solid #287640;
+  border-radius: 8px;
+  background: rgba(222, 222, 222, 0.88);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TÍTULO */
+.redefinir-card h1 {
+  margin: 0 0 8px 0;
+  font-size: 38px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
+/* SUBTÍTULO */
+.redefinir-card p {
+  margin: 0;
+  font-size: 21px;
+  color: #222;
+  text-align: center;
+}
+
+/* TEXTO DO E-MAIL */
+.redefinir-card h2 {
+  width: 385px;
+  margin: 70px 0 9px 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: #222;
+  text-align: left;
+}
+
+/* CAMPO DE E-MAIL */
+.redefinir-card .redefinir-senha-input {
+  background: white;
+  width: 390px;
+  height: 68px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  box-sizing: border-box;
+}
+
+/* ÍCONE */
+.redefinir-card .redefinir-senha-input svg {
+  width: 18px;
+  height: 18px;
+  color: #aaa;
+  margin-right: 10px;
+}
+
+/* INPUT */
+.redefinir-card .redefinir-senha-input input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  background: transparent;
+}
+
+/* PLACEHOLDER */
+.redefinir-card .redefinir-senha-input input::placeholder {
+  color: #666;
+}
+
+/* BOTÃO */
+.redefinir-button {
+  width: 330px;
+  height: 60px;
+  border: 0;
+  border-radius: 12px;
+  background: #287640;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 120px;
+}
+
+.redefinir-button:hover {
+  background: #216334;
+}
+
+.redefinir-button:active {
+  transform: scale(0.98);
+}
+
+/*Código de Recuperação*/
+/* ==================== RECUPERAÇÃO DE SENHA ==================== */
+
+/* ==================== PÁGINA ==================== */
+
+.recuperacao-senha-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("../../assets/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* CARD */
+
+.recuperacao-senha-card {
+  width: 485px;
+  height: 690px;
+  padding: 48px 30px;
+  border: 1px solid #287640;
+  border-radius: 8px;
+  background: #dedede;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TÍTULO */
+
+.recuperacao-senha-card h1 {
+  margin: 0 0 24px 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
+/**/
+
+.recuperacao-senha-aviso {
+  width: 390px;
+  margin: 0 0 42px 0;
+  text-align: center;
+  font-size: 21px;
+  line-height: 1.25;
+  color: #c00000;
+}
+
+/* CÓDIGO*/
+
+.codigo-container {
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* inputs ficam na mesma linha */
+
+.codigo-inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* cada campo */
+
+.codigo-input {
+  width: 70px;
+  height: 84px;
+  border: 1px solid #287640;
+  border-radius: 8px;
+  background: #f5f5f5;
+  box-sizing: border-box;
+
+  text-align: center;
+  font-size: 42px;
+  font-weight: 500;
+  color: #666;
+  outline: none;
+}
+
+/* placeholder 0 */
+
+.codigo-input::placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+/* efeito ao clicar */
+
+.codigo-input:focus {
+  border: 2px solid #287640;
+}
+
+/* ==================== REENVIAR CÓDIGO ==================== */
+
+.reenviar-codigo {
+  margin-top: 16px;
+  color: #287640;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==================== BOTÃO ==================== */
+
+.recuperacao-senha-button {
+  width: 255px;
+  height: 70px;
+  margin-top: 105px;
+
+  border: 0;
+  border-radius: 15px;
+
+  background: #287640;
+  color: white;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.recuperacao-senha-button:hover {
+  background: #236536;
+}

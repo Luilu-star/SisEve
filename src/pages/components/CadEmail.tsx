@@ -18,16 +18,14 @@ function CadEmail() {
           <input
             type="email"
             placeholder="E-mail"
-            required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
           />
         </form>
         <button
           type="button"
           className="cadastro-email-button"
-          onClick={() => navigate("/cadastro/conc")}
+          onClick={() => navigate("/cadastro/verificacao")}
         >
-          Continuar
+          Enviar código
         </button>
       </div>
     </div>

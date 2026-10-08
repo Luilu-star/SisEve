@@ -6,7 +6,9 @@ import "./Cad.css";
 function Cadastro() {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
+
     const tipo = searchParams.get("tipo") || "participante";
+
     const metodo: "email" | "siap" | "matricula" =
         tipo === "participante"
             ? "email"
@@ -20,8 +22,10 @@ function Cadastro() {
         <div className="cadastro-page">
             <div className="cadastro-card">
                 <h1>Cadastre-se</h1>
+
                 <div className="cadastro-input">
                     {metodo === "email" ? <Mail /> : <User />}
+
                     <input
                         type="text"
                         placeholder={
@@ -33,43 +37,67 @@ function Cadastro() {
                         }
                     />
                 </div>
+
                 <div className="cadastro-metodos">
+
+                    {/* GOOGLE */}
                     <button
                         type="button"
                         className="cadastro-metodo"
-                        onClick={() => navigate("/cadastro?tipo=participante")}
+                        onClick={() =>
+                            navigate("/cadastro?tipo=participante")
+                        }
                     >
                         <img src={google} alt="Google" />
                     </button>
+
+                    {/* ORGANIZADOR */}
                     <button
                         type="button"
                         className="cadastro-metodo"
-                        onClick={() => navigate("/cadastro?tipo=organizador")}
+                        onClick={() =>
+                            navigate("/cadastro?tipo=organizador")
+                        }
                     >
                         <span>S</span>
                     </button>
+
+                    {/* ALUNO */}
                     <button
                         type="button"
                         className="cadastro-metodo"
-                        onClick={() => navigate("/cadastro?tipo=aluno")}
+                        onClick={() =>
+                            navigate("/cadastro?tipo=aluno")
+                        }
                     >
                         <span>Q</span>
                     </button>
+
                 </div>
-                <button 
-                type="button" 
-                className="cadastro-continuar"
-                onClick={() => navigate("/cadastro/email")}>
+
+                <button
+                    type="button"
+                    className="cadastro-continuar"
+                    onClick={() => {
+                        if (tipo === "participante" || tipo === "organizador" || tipo === "aluno") {
+                            navigate("/cadastro/email");
+                        }
+                    }}
+                >
                     Continuar
                 </button>
-                <div className="cadastro-termos">
-                    <input type="checkbox" id="termos" />
-                    <label htmlFor="termos">
+
+                <label className="cadastro-termos">
+                    <input type="checkbox" />
+
+                    <span>
                         Li e concordo com os{" "}
-                        <a href="#">termos de uso de dados</a> e as{" "}
-                        <a href="#">configurações de privacidade do sistema.</a>
-                    </label>
-                </div>
+                        <a href="#">termos de uso de dados</a> e{" "}
+                        <a href="#">
+                            as configurações de privacidade do sistema.
+                        </a>
+                    </span>
+                </label>
             </div>
         </div>
     );

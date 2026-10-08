@@ -55,7 +55,9 @@ function Home() {
           </div>
 
           <div className="links-login">
-            <a href="#">Esqueci a senha</a>
+            <a href="#" onClick={() => navigate("/redefinicao")}>
+              Esqueci a senha
+            </a>
           </div>
 
           <button
@@ -69,6 +71,7 @@ function Home() {
           <button
             type="button"
             className="login-button"
+            onClick={() => navigate("/principal")}
           >
             Login
           </button>

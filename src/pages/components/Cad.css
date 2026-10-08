@@ -237,6 +237,14 @@
   margin-top: 145px;
 }
 
+.cadastro-email-button:hover {
+  background: #216334;
+}
+
+.cadastro-email-button:active {
+  transform: scale(0.98);
+}
+
 /* ==================== Conclusão do Cadastro ==================== */
 
 
@@ -328,4 +336,101 @@
   font-weight: 700;
   cursor: pointer;
   margin-top: 160px;
+}
+
+/* ==================== Varificação E-Mail ==================== */
+
+.verificacao-email-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("../../assets/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* CARD */
+.verificacao-email-card {
+  width: 470px;
+  height: 620px;
+  padding: 58px 30px;
+  border: 1px solid #287640;
+  border-radius: 8px;
+  background: #DEDEDE;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TÍTULO */
+.verificacao-email-card h1 {
+  margin: 0 0 58px 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* CÓDIGO */
+.codigo-container {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.codigo-input {
+  width: 61px;
+  height: 76px;
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  background: #f8f8f8;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 38px;
+  font-weight: 500;
+  color: #639274;
+  outline: none;
+}
+
+.codigo-input:focus {
+  border: 2px solid #287640;
+}
+
+/* BOTÃO CONCLUIR */
+.verificacao-email-button {
+  width: 330px;
+  height: 70px;
+  border: 0;
+  border-radius: 12px;
+  background: #287640;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 105px;
+}
+
+/* FRASES */
+.verificacao-email-card p {
+  width: 390px;
+  margin: 0 0 34px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.envio-codigo {
+  color: #666;
+}
+
+.aviso-codigo {
+  color: red;
 }
