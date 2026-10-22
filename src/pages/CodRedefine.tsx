@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./Home.css";
+import "../styles/Home.css";
 
 function CodRedefine() {
   const [codigo, setCodigo] = useState(["", "", "", "", ""]);

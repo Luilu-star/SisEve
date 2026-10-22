@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "./Cad.css";
+import "../styles/Cad.css";
 
 function CadEmail() {
   const navigate = useNavigate();

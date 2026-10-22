@@ -1,6 +1,6 @@
 import { User } from 'lucide-react';
 import { Lock } from 'lucide-react';
-import "./Cad.css";
+import "../styles/Cad.css";
 
 function Conc() {
   return (

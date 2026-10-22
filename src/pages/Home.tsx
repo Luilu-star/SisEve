@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Home.css";
+import "../styles/Home.css";
 import { User, Lock } from "lucide-react";
-import logo from "../../assets/logo.png";
-import Google from "../../assets/google.png";
+import logo from "../assets/Logo.png";
+import Google from "../assets/google.png";
 
 function Home() {
   const navigate = useNavigate();

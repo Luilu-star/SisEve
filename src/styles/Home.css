@@ -52,7 +52,7 @@ body {
       rgba(0, 0, 0, 0.55),
       rgba(0, 0, 0, 0.55)
     ),
-  url("../../assets/fundo.png");
+  url("../assets/fundo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -172,9 +172,7 @@ body {
   background: #296138;
 }
 
-
-/* ==================== Parte da direita= ==================== */
-
+/* ==================== Parte da direita ==================== */
 
 .apresentacao {
   width: 600px;
@@ -183,19 +181,24 @@ body {
   align-items: center;
   text-align: center;
 }
-.logo {
-  width: 330px;
-  height: 230px;
+
+.apresentacao .logo {
+  width: 360px;
+  height: 260px;
   object-fit: contain;
-  margin-bottom: 10px;
-  transform: translateX(-20px);
+  display: block;
+  margin: 0 auto 10px;
+  transform: none;
 }
+
 .apresentacao p {
   font-size: 17px;
   line-height: 1.5;
   color: white;
   margin: 0 0 25px;
+  text-align: center;
 }
+
 .cadastro-button {
   width: 270px;
   height: 52px;
@@ -207,14 +210,19 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
 .cadastro-button:hover {
   background: #d94032;
 }
+
 .apresentacao h2 {
+  width: 100%;
   margin-top: 48px;
   font-size: 22px;
   color: white;
+  text-align: center;
 }
+
 
 
 /* ==================== Recuperação de Senha ==================== */
@@ -231,7 +239,7 @@ body {
       rgba(0, 0, 0, 0.55),
       rgba(0, 0, 0, 0.55)
     ),
-    url("../../assets/fundo.png");
+    url("../assets/fundo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -351,7 +359,7 @@ body {
       rgba(0, 0, 0, 0.55),
       rgba(0, 0, 0, 0.55)
     ),
-    url("../../assets/fundo.png");
+    url("../assets/fundo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -393,9 +401,9 @@ body {
   color: #c00000;
 }
 
-/* CÓDIGO*/
+/* CÓDIGO (prefixado para não ser sobrescrito pelo Cad.css) */
 
-.codigo-container {
+.recuperacao-senha-card .codigo-container {
   width: 390px;
   display: flex;
   flex-direction: column;
@@ -404,15 +412,16 @@ body {
 
 /* inputs ficam na mesma linha */
 
-.codigo-inputs {
+.recuperacao-senha-card .codigo-inputs {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
 /* cada campo */
 
-.codigo-input {
+.recuperacao-senha-card .codigo-input {
   width: 70px;
   height: 84px;
   border: 1px solid #287640;
@@ -429,20 +438,20 @@ body {
 
 /* placeholder 0 */
 
-.codigo-input::placeholder {
+.recuperacao-senha-card .codigo-input::placeholder {
   color: #777;
   opacity: 1;
 }
 
 /* efeito ao clicar */
 
-.codigo-input:focus {
+.recuperacao-senha-card .codigo-input:focus {
   border: 2px solid #287640;
 }
 
 /* ==================== REENVIAR CÓDIGO ==================== */
 
-.reenviar-codigo {
+.recuperacao-senha-card .reenviar-codigo {
   margin-top: 16px;
   color: #287640;
   font-size: 16px;

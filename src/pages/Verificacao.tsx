@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import "./Cad.css";
+import "../styles/Cad.css";
 
 function Verificacao() {
   const navigate = useNavigate();

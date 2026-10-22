@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Mail, User } from "lucide-react";
-import google from "../../assets/google.png";
-import "./Cad.css";
+import google from "../assets/google.png";
+import "../styles/Cad.css";
 
 function Cadastro() {
     const [searchParams] = useSearchParams();

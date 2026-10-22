@@ -1,0 +1,467 @@
+/* ===== BASE DA PÁGINA ===== */
+/* As variáveis (--u, --verde, --claro, --card) e o reset de botões
+   ficam no Header.css */
+.home {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #fff;
+  color: #1b1b1b;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ===== BANNERS ===== */
+.area-banners {
+  padding: calc(var(--u) * 60) 0 calc(var(--u) * 36);
+  background: var(--claro);
+  overflow: hidden;
+}
+
+.banners { display: flex; justify-content: center; gap: calc(var(--u) * 140); }
+
+.banner {
+  flex: 0 0 calc(var(--u) * 848);
+  aspect-ratio: 848 / 397;
+  border-radius: calc(var(--u) * 14);
+  background: var(--card);
+  overflow: hidden;
+}
+
+.banner img,
+.evento-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.indicadores {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 17);
+  margin-top: calc(var(--u) * 44);
+}
+
+.indicador {
+  width: calc(var(--u) * 13);
+  height: calc(var(--u) * 13);
+  border-radius: 50%;
+  background: #aab5ae;
+}
+
+.indicador.ativo { background: #3f4642; }
+
+/* ===== RECENTES ===== */
+.recentes { padding: calc(var(--u) * 48) calc(var(--u) * 53) calc(var(--u) * 30); }
+
+.titulo-recentes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: calc(var(--u) * 30);
+}
+
+.titulo-recentes h1 {
+  margin: 0 0 0 calc(var(--u) * -14);
+  font-size: calc(var(--u) * 38);
+}
+
+.ver-todos {
+  --i: 30;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 12);
+  font-size: calc(var(--u) * 27);
+  font-weight: 600;
+}
+
+/* seletor forte + minmax(0, 1fr): garante 5 colunas e impede a imagem de alargar as colunas */
+.home .lista-eventos {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: calc(var(--u) * 32);
+  width: 100%;
+}
+
+.home .evento-card {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  aspect-ratio: 337 / 202;
+  border-radius: calc(var(--u) * 14);
+  background: var(--card);
+  box-shadow: 0 calc(var(--u) * 4) calc(var(--u) * 8) rgb(0 0 0 / 0.18);
+  overflow: hidden;
+}
+
+/* ===== CELULAR / TABLET (só banners e recentes) ===== */
+@media (max-width: 800px) {
+  .area-banners { padding: 20px 0 16px; }
+  .banners { gap: 3vw; }
+  .banner { flex-basis: 84vw; }
+  .indicadores { margin-top: 14px; }
+
+  .recentes { padding: 20px 16px 28px; }
+  .titulo-recentes h1 { margin: 0; font-size: 22px; }
+  .ver-todos { --i: 16; font-size: 15px; }
+
+  .home .lista-eventos { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .home .evento-card { flex: 0 0 64vw; scroll-snap-align: start; }
+}
+
+
+/*PERFIL*/
+
+* {
+  box-sizing: border-box;
+}
+
+.pagina-perfil {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #080808;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   ÍCONES
+========================= */
+
+.icone-menu {
+  width: 36px;
+  height: 36px;
+}
+
+.icone-titulo {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.icone-certificado {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  stroke-width: 1.5;
+}
+
+.icone-evento {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.icone-download {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+.icone-usuario {
+  width: 68px;
+  height: 68px;
+  stroke-width: 1.3;
+}
+
+.icone-capa {
+  width: 42px;
+  height: 42px;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+}
+
+.botao-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #080808;
+  cursor: pointer;
+}
+
+.logo-ifce {
+  width: 315px;
+  max-width: 75%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================
+   ESTRUTURA PRINCIPAL
+========================= */
+
+.conteudo-principal {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.95fr);
+  gap: 7.5%;
+  align-items: start;
+  margin: 0 auto;
+  padding: 0 6.1% 40px;
+}
+
+.coluna-esquerda {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  padding-top: 8px;
+  min-width: 0;
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.titulo-secao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 32px;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+/* =========================
+   CERTIFICADOS
+========================= */
+
+.card-certificados,
+.card-eventos {
+  width: 90%;
+  padding: 22px;
+  border: 2px solid #171717;
+  border-radius: 17px;
+  background-color: #ffffff;
+}
+
+.card-certificados {
+  min-height: 347px;
+}
+
+.lista-certificados {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin: 0;
+  padding: 0 8px;
+  list-style: none;
+}
+
+.item-certificado {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 13px;
+}
+
+.link-certificado {
+  color: #28623b;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: underline;
+}
+
+.botao-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 13px;
+  border: none;
+  border-radius: 17px;
+  background-color: #28623b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.botao-download:hover {
+  background-color: #19472a;
+}
+
+/* =========================
+   PRÓXIMOS EVENTOS
+========================= */
+
+.card-eventos {
+  min-height: 300px;
+}
+
+.card-eventos .titulo-secao {
+  margin-bottom: 25px;
+}
+
+.lista-eventos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.evento {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #b9d4c0;
+  border-radius: 12px;
+  background-color: #f6fff9;
+}
+
+.evento h2 {
+  margin: 0 0 12px;
+  color: #28623b;
+  font-size: 21px;
+  overflow-wrap: anywhere;
+}
+
+.evento p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  color: #414141;
+  font-size: 16px;
+}
+
+/* =========================
+   PAINEL DO PERFIL
+========================= */
+
+.card-perfil {
+  width: 90%;
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid #171717;
+  border-radius: 27px;
+  background-color: #ecfff7;
+}
+
+.capa-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 128px;
+  border-bottom: 2px solid #171717;
+  background-color: #ffffff;
+  color: #242126;
+}
+
+.conteudo-perfil {
+  padding: 0 35px 20px;
+}
+
+.identificacao-perfil {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: -66px;
+  margin-bottom: 27px;
+}
+
+.avatar-perfil {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  border: 3px solid #28623b;
+  border-radius: 50%;
+  background-color: #eef2ef;
+  color: #28623b;
+}
+
+.dados-usuario {
+  min-width: 0;
+  padding-top: 65px;
+}
+
+.dados-usuario h2 {
+  margin: 0 0 4px;
+  font-size: 27px;
+  overflow-wrap: anywhere;
+}
+
+.dados-usuario p {
+  margin: 0;
+  color: #898f8c;
+  font-size: 24px;
+}
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.secao-descricao {
+  margin-bottom: 38px;
+}
+
+.secao-descricao h3,
+.secao-participados h3 {
+  margin: 0 0 22px;
+  font-size: 24px;
+}
+
+.caixa-descricao {
+  padding: 20px 13px 12px;
+  border: 1px solid #9fc7b1;
+  border-radius: 15px;
+  background-color: #f7fffb;
+}
+
+.caixa-descricao p {
+  margin: 0;
+  color: #484848;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.link-ver-mais {
+  display: block;
+  width: fit-content;
+  margin: 15px 12px 0 auto;
+  color: #28623b;
+  font-size: 19px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* =========================
+   EVENTOS PARTICIPADOS
+   SOMENTE IMAGENS
+========================= */
+
+.secao-participados {
+  width: 100%;
+  min-width: 0;
+}
+
+.secao-participados h3 {
+  margin-bottom: 16px;
+}
+
+.imagens-eventos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.imagem-evento {
+  display: block;
+  width: 100%;
+  height: 145px;
+  min-width: 0;
+  padding: 0;
+  border: 2px solid #b9d4c0;
+  border-radius: 16px;
+  object-fit: cover;
+  background-color: #ffffff;
+}
