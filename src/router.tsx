@@ -11,6 +11,7 @@ import Principal from "./pages/Principal";
 import Perfil from "./pages/Perfil";
 import Espera from "./pages/Espera";
 import Inscricoes from "./pages/Inscricoes";
+import Configuracoes from "./pages/Configuracoes";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/espera" element={<Espera />} />
         <Route path="/inscricoes" element={<Inscricoes />} />
+        <Route path="/configuracoes" element={<Configuracoes />} />
       </Routes>
     </BrowserRouter>
   );

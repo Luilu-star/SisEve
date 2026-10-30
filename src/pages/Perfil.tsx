@@ -1,44 +1,53 @@
+
+import { useState } from "react";
 import "../styles/Principal.css";
 
-import { Menu, FileText, FileCheck, CalendarCheck2, MapPin, Clock, Download, UserRound, Image as ImageIcon, } from "lucide-react";
+import {
+  FileText,
+  FileCheck,
+  CalendarCheck2,
+  MapPin,
+  Clock,
+  Download,
+  UserRound,
+  Image as ImageIcon
+} from "lucide-react";
 
 import IFCE from "../assets/IFCE.webp";
+import HeaderPerfil from "../components/HeaderPerfil";
 
 function Perfil() {
+  const [descricao, setDescricao] = useState<string>("");
+
   const certificados = [
     "Certificado de Oficina de Robótica",
     "Certificado da Semana de Inclusão",
-    "Certificado da Palestra sobre IA",
+    "Certificado da Palestra sobre IA"
   ];
+
+  const usuarios = {
+    nome: "Flávio",
+    papel: "Estudante"
+  };
 
   const eventos = [
     {
       titulo: "Palestra contra o bullying",
       data: "Data a definir",
       horario: "Horário a definir",
-      local: "Local a definir",
+      local: "Local a definir"
     },
     {
       titulo: "Semana da Tecnologia",
       data: "Data a definir",
       horario: "Horário a definir",
-      local: "Local a definir",
-    },
+      local: "Local a definir"
+    }
   ];
 
   return (
     <div className="pagina-perfil">
-      <header className="cabecalho">
-        <button className="botao-menu" aria-label="Abrir menu">
-          <Menu className="icone-menu" />
-        </button>
-
-        <img
-          className="logo-ifce"
-          src={IFCE}
-          alt="Instituto Federal do Ceará"
-        />
-      </header>
+      <HeaderPerfil />
 
       <main className="conteudo-principal">
         <section className="coluna-esquerda">
@@ -59,9 +68,7 @@ function Perfil() {
 
                   <button
                     className="botao-download"
-                    onClick={() =>
-                      alert(`Download do certificado ${index + 1}`)
-                    }
+                    onClick={() => alert(`Download do certificado ${index + 1}`)}
                   >
                     <Download className="icone-download" />
                     Baixar Certificado
@@ -111,26 +118,21 @@ function Perfil() {
               </div>
 
               <div className="dados-usuario">
-                <h2>Flávio</h2>
-                <p>Estudante</p>
+                <h2>{usuarios.nome}</h2>
+                <p>{usuarios.papel}</p>
               </div>
             </div>
 
             <section className="secao-descricao">
               <h3>Descrição</h3>
 
-              <div className="caixa-descricao">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque vehicula urna non orci mattis, at laoreet
-                  sem aliquam. Ut finibus sapien et lacus rutrum, euismod
-                  pharetra leo sodales...
-                </p>
-
-                <a href="#" className="link-ver-mais">
-                  Ver mais
-                </a>
-              </div>
+              <textarea
+                className="campo-descricao"
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}
+                placeholder="Escreva uma descrição sobre você..."
+                rows={5}
+              />
             </section>
 
             <section className="secao-participados">

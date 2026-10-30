@@ -13,6 +13,7 @@ import Principal from "./pages/Principal";
 import Perfil from "./pages/Perfil";
 import Espera from "./pages/Espera";
 import Inscricoes from "./pages/Inscricoes";
+import Configuracoes from "./pages/Configuracoes";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/espera" element={<Espera />} />
         <Route path="/inscricoes" element={<Inscricoes />} />
+        <Route path="/configuracoes" element={<Configuracoes />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

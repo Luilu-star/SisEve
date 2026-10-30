@@ -117,9 +117,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   ÍCONES
-========================= */
+/* ÍCONES */
 
 .icone-menu {
   width: 36px;
@@ -162,38 +160,7 @@
   height: 42px;
 }
 
-/* =========================
-   CABEÇALHO
-========================= */
-
-.cabecalho {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 20px;
-}
-
-.botao-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: #080808;
-  cursor: pointer;
-}
-
-.logo-ifce {
-  width: 315px;
-  max-width: 75%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* =========================
-   ESTRUTURA PRINCIPAL
-========================= */
+/* ESTRUTURA PRINCIPAL */
 
 .conteudo-principal {
   display: grid;
@@ -212,9 +179,7 @@
   min-width: 0;
 }
 
-/* =========================
-   TÍTULOS
-========================= */
+/* TÍTULOS */
 
 .titulo-secao {
   display: flex;
@@ -225,9 +190,7 @@
   font-weight: 700;
 }
 
-/* =========================
-   CERTIFICADOS
-========================= */
+/* CERTIFICADOS */
 
 .card-certificados,
 .card-eventos {
@@ -287,9 +250,7 @@
   background-color: #19472a;
 }
 
-/* =========================
-   PRÓXIMOS EVENTOS
-========================= */
+/* PRÓXIMOS EVENTOS */
 
 .card-eventos {
   min-height: 300px;
@@ -330,12 +291,12 @@
   font-size: 16px;
 }
 
-/* =========================
-   PAINEL DO PERFIL
-========================= */
+/* PAINEL DO PERFIL */
 
 .card-perfil {
   width: 90%;
+  transform: translateY(-36px);
+  height: 105%;
   min-width: 0;
   overflow: hidden;
   border: 2px solid #171717;
@@ -395,9 +356,7 @@
   font-size: 24px;
 }
 
-/* =========================
-   DESCRIÇÃO
-========================= */
+/* DESCRIÇÃO */
 
 .secao-descricao {
   margin-bottom: 38px;
@@ -409,34 +368,33 @@
   font-size: 24px;
 }
 
-.caixa-descricao {
-  padding: 20px 13px 12px;
+.campo-descricao {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  padding: 16px 13px;
   border: 1px solid #9fc7b1;
   border-radius: 15px;
+  outline: none;
   background-color: #f7fffb;
-}
-
-.caixa-descricao p {
-  margin: 0;
   color: #484848;
-  font-size: 20px;
-  line-height: 1.4;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.link-ver-mais {
-  display: block;
-  width: fit-content;
-  margin: 15px 12px 0 auto;
-  color: #28623b;
-  font-size: 19px;
-  font-weight: 600;
-  text-decoration: underline;
+.campo-descricao:focus {
+  border-color: #28623b;
+  box-shadow: 0 0 0 2px rgba(40, 98, 59, 0.12);
 }
 
-/* =========================
-   EVENTOS PARTICIPADOS
-   SOMENTE IMAGENS
-========================= */
+.campo-descricao::placeholder {
+  color: #898f8c;
+}
+
+/* EVENTOS PARTICIPADOS */
 
 .secao-participados {
   width: 100%;
@@ -464,4 +422,59 @@
   border-radius: 16px;
   object-fit: cover;
   background-color: #ffffff;
+}
+
+/* OPÇÕES DO PERFIL */
+
+.header-opcoes {
+  position: relative;
+}
+
+.botao-opcoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 1000;
+  width: 210px;
+  padding: 8px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.popup button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 10px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: #333333;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #f0f0f0;
+}
+
+.popup button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }

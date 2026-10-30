@@ -63,7 +63,7 @@ function Header() {
 
           <hr />
 
-          <button className="menu-item pequeno" onClick={() => irPara("/configuracoes")}>
+          <button className="menu-item pequeno" onClick={() => irPara("/Configuracoes")}>
             <Settings />
             <span>Configurações</span>
           </button>
