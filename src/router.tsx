@@ -12,6 +12,7 @@ import Perfil from "./pages/Perfil";
 import Espera from "./pages/Espera";
 import Inscricoes from "./pages/Inscricoes";
 import Configuracoes from "./pages/Configuracoes";
+import EditPerfil from "./pages/EditPerfil";
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/espera" element={<Espera />} />
         <Route path="/inscricoes" element={<Inscricoes />} />
         <Route path="/configuracoes" element={<Configuracoes />} />
+        <Route path="/EditPerfil" element={<EditPerfil />} />
       </Routes>
     </BrowserRouter>
   );

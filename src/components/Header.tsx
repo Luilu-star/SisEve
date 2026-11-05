@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Menu, Search, Bell, UserRound,
-  House, CalendarClock, CircleCheckBig, FileText, Settings, LogOut
-} from "lucide-react";
+import {Menu, Search, Bell, UserRound,House, CalendarClock, CircleCheckBig, FileText, Settings, LogOut} from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../styles/Global.css";
@@ -63,7 +60,7 @@ function Header() {
 
           <hr />
 
-          <button className="menu-item pequeno" onClick={() => irPara("/Configuracoes")}>
+          <button className="menu-item pequeno" onClick={() => irPara("/EditPerfil")}>
             <Settings />
             <span>Configurações</span>
           </button>

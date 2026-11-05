@@ -1,10 +1,10 @@
-import Header from "../components/Header";
+import HeaderEdits from "../components/HeaderEdits";
 import {UserRound, Bell, Globe, ShieldCheck, CircleQuestionMark, ChevronDown} from "lucide-react";
 import "../styles/Configuracoes.css";
 function Configuracoes() {
   return (
     <main className="configuracoes-page">
-    <Header />
+    <HeaderEdits />
     <section className="configuracoes">
         <span>Configurações</span>
         <div className="opcoes">

@@ -157,6 +157,7 @@ body {
 }
 /* BOTÃO LOGIN */
 .login-button {
+  display:block;
   width: 80%;
   height: 52px;
   margin: 20px auto 0;

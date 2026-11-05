@@ -10,7 +10,6 @@ function Home() {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
 
   return (
-
     <div className="home">
       <header className="menu">
         <nav>
@@ -24,61 +23,72 @@ function Home() {
         <section className="login-card">
           <h1>LOGIN</h1>
 
-          <div className="campo">
-            <User />
-            <input
-              type="text"
-              placeholder="E-mail ou SIAPE"
-            />
-          </div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              navigate("/principal");
+            }}
+          >
+            <div className="campo">
+              <User />
 
-          <div className="campo">
-            <Lock />
-            <input
-              type={senhaVisivel ? "text" : "password"}
-              placeholder="Senha"
-            />
+              <input
+                type="text"
+                placeholder="E-mail ou SIAPE"
+                required
+              />
+            </div>
+
+            <div className="campo">
+              <Lock />
+
+              <input
+                type={senhaVisivel ? "text" : "password"}
+                placeholder="Senha"
+                required
+              />
+
+              <button
+                type="button"
+                className="olho"
+                onClick={() => setSenhaVisivel(!senhaVisivel)}
+              >
+                <i
+                  className={
+                    senhaVisivel
+                      ? "fa-solid fa-eye-slash"
+                      : "fa-solid fa-eye"
+                  }
+                ></i>
+              </button>
+            </div>
+
+            <div className="links-login">
+              <a
+                href="#"
+                onClick={() => navigate("/redefinicao")}
+              >
+                Esqueci a senha
+              </a>
+            </div>
 
             <button
               type="button"
-              className="olho"
-              onClick={() => setSenhaVisivel(!senhaVisivel)}
+              className="google-login"
             >
-              <i
-                className={
-                  senhaVisivel
-                    ? "fa-solid fa-eye-slash"
-                    : "fa-solid fa-eye"
-                }
-              ></i>
+              <img src={Google} alt="Google" />
+              <span>Google</span>
             </button>
-          </div>
 
-          <div className="links-login">
-            <a href="#" onClick={() => navigate("/redefinicao")}>
-              Esqueci a senha
-            </a>
-          </div>
-
-          <button
-            type="button"
-            className="google-login"
-          >
-            <img src={Google} alt="Google" />
-            <span>Google</span>
-          </button>
-
-          <button
-            type="button"
-            className="login-button"
-            onClick={() => navigate("/principal")}
-          >
-            Login
-          </button>
+            <button
+              type="submit"
+              className="login-button"
+            >
+              Login
+            </button>
+          </form>
         </section>
 
-
-        
         <section className="apresentacao">
           <img
             src={logo}

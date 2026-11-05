@@ -2,16 +2,7 @@
 import { useState } from "react";
 import "../styles/Principal.css";
 
-import {
-  FileText,
-  FileCheck,
-  CalendarCheck2,
-  MapPin,
-  Clock,
-  Download,
-  UserRound,
-  Image as ImageIcon
-} from "lucide-react";
+import {FileText, FileCheck, CalendarCheck2, MapPin, Clock, Download, UserRound, Image as ImageIcon} from "lucide-react";
 
 import IFCE from "../assets/IFCE.webp";
 import HeaderPerfil from "../components/HeaderPerfil";
@@ -27,7 +18,7 @@ function Perfil() {
 
   const usuarios = {
     nome: "Flávio",
-    papel: "Estudante"
+    cargo: "Estudante"
   };
 
   const eventos = [
@@ -119,7 +110,7 @@ function Perfil() {
 
               <div className="dados-usuario">
                 <h2>{usuarios.nome}</h2>
-                <p>{usuarios.papel}</p>
+                <p>{usuarios.cargo}</p>
               </div>
             </div>
 

@@ -3,6 +3,7 @@ import "../styles/Home.css";
 
 function CodRedefine() {
   const [codigo, setCodigo] = useState(["", "", "", "", ""]);
+
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
   const handleChange = (valor: string, index: number) => {
@@ -26,6 +27,12 @@ function CodRedefine() {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Aqui será realizada a validação do código.
+  };
+
   return (
     <div className="recuperacao-senha-page">
       <div className="recuperacao-senha-card">
@@ -42,36 +49,51 @@ function CodRedefine() {
           senha.
         </p>
 
-        <div className="codigo-container">
-        <div className="codigo-inputs">
-            {codigo.map((numero, index) => (
-            <input
-                key={index}
-                ref={(element) => {
-                inputsRef.current[index] = element;
-                }}
-                className="codigo-input"
-                type="text"
-                inputMode="numeric"
-                maxLength={1}
-                placeholder="0"
-                value={numero}
-                onChange={(e) => handleChange(e.target.value, index)}
-                onKeyDown={(e) => handleKeyDown(e, index)}
-            />
-            ))}
-        </div>
+        <form onSubmit={handleSubmit}>
 
-        <a href="#" className="reenviar-codigo">
-            Reenviar código
-        </a>
-        </div>
-        <button
-          type="button"
-          className="recuperacao-senha-button"
-        >
-          Enviar
-        </button>
+          <div className="codigo-container">
+
+            <div className="codigo-inputs">
+
+              {codigo.map((numero, index) => (
+                <input
+                  required
+                  pattern="[0-9]"
+                  key={index}
+                  ref={(element) => {
+                    inputsRef.current[index] = element;
+                  }}
+                  className="codigo-input"
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={1}
+                  placeholder="0"
+                  value={numero}
+                  onChange={(e) =>
+                    handleChange(e.target.value, index)
+                  }
+                  onKeyDown={(e) =>
+                    handleKeyDown(e, index)
+                  }
+                />
+              ))}
+
+            </div>
+
+            <a href="#" className="reenviar-codigo">
+              Reenviar código
+            </a>
+
+          </div>
+
+          <button
+            type="submit"
+            className="recuperacao-senha-button"
+          >
+            Enviar
+          </button>
+
+        </form>
 
       </div>
     </div>

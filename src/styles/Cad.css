@@ -110,6 +110,7 @@
 
 /* BOTÃO CONTINUAR */
 .cadastro-continuar {
+  display: block;
   width: 330px;
   height: 60px;
   border: 0;
@@ -119,7 +120,11 @@
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
+}
+
+.cadastro-continuar:hover {
+  background: #216334;
 }
 
 /* TERMOS */
@@ -139,6 +144,7 @@
   width: 17px;
   height: 17px;
   accent-color: #287640;
+  flex-shrink: 0;
 }
 
 /* ==================== Cadastro E-mail ==================== */
@@ -166,7 +172,7 @@
   padding: 58px 30px;
   border: 1px solid #287640;
   border-radius: 8px;
-  background: #DEDEDE;
+  background: #dedede;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -191,6 +197,14 @@
   color: #666;
 }
 
+/* FORMULÁRIO */
+.cadastro-email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 /* CAMPO DE E-MAIL */
 .cadastro-email-input {
   background: white;
@@ -209,9 +223,11 @@
   height: 18px;
   color: #aaa;
   margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .cadastro-email-input input {
+  display: block;
   width: 100%;
   height: 100%;
   border: 0;
@@ -271,7 +287,7 @@
   padding: 58px 30px;
   border: 1px solid #287640;
   border-radius: 8px;
-  background: #DEDEDE;
+  background: #dedede;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -284,6 +300,14 @@
   font-size: 40px;
   font-weight: 700;
   color: #222;
+}
+
+/* FORMULÁRIO */
+.cadastro-user-card form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* CAMPOS INPUTS */
@@ -309,6 +333,7 @@
   height: 18px;
   color: #aaa;
   margin-right: 10px;
+  flex-shrink: 0;
 }
 
 .cadastro-user-input input {
@@ -336,6 +361,10 @@
   font-weight: 700;
   cursor: pointer;
   margin-top: 160px;
+}
+
+.cadastro-user-button:hover {
+  background: #216334;
 }
 
 /* ==================== Verificação E-Mail ==================== */
@@ -372,7 +401,7 @@
   border: 1px solid #287640;
   border-radius: 8px;
 
-  background: #DEDEDE;
+  background: #dedede;
   box-sizing: border-box;
 
   display: flex;
@@ -446,6 +475,14 @@
   margin-top: 12px;
 }
 
+.verificacao-email-button:hover {
+  background: #216334;
+}
+
+.verificacao-email-button:active {
+  transform: scale(0.98);
+}
+
 /* FRASES */
 .verificacao-email-card p {
   width: 100%;
@@ -465,12 +502,4 @@
   font-size: 15px !important;
   line-height: 1.4;
   margin: 0 0 24px !important;
-}
-
-.verificacao-email-button:hover {
-  background: #216334;
-}
-
-.verificacao-email-button:active {
-  transform: scale(0.98);
 }

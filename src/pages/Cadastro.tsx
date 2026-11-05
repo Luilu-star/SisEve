@@ -23,81 +23,85 @@ function Cadastro() {
             <div className="cadastro-card">
                 <h1>Cadastre-se</h1>
 
-                <div className="cadastro-input">
-                    {metodo === "email" ? <Mail /> : <User />}
-
-                    <input
-                        type="text"
-                        placeholder={
-                            metodo === "email"
-                                ? "E-mail"
-                                : metodo === "siap"
-                                ? "SIAP"
-                                : "Matrícula"
-                        }
-                    />
-                </div>
-
-                <div className="cadastro-metodos">
-
-                    {/* GOOGLE */}
-                    <button
-                        type="button"
-                        className="cadastro-metodo"
-                        onClick={() =>
-                            navigate("/cadastro?tipo=participante")
-                        }
-                    >
-                        <img src={google} alt="Google" />
-                    </button>
-
-                    {/* ORGANIZADOR */}
-                    <button
-                        type="button"
-                        className="cadastro-metodo"
-                        onClick={() =>
-                            navigate("/cadastro?tipo=organizador")
-                        }
-                    >
-                        <span>S</span>
-                    </button>
-
-                    {/* ALUNO */}
-                    <button
-                        type="button"
-                        className="cadastro-metodo"
-                        onClick={() =>
-                            navigate("/cadastro?tipo=aluno")
-                        }
-                    >
-                        <span>Q</span>
-                    </button>
-
-                </div>
-
-                <button
-                    type="button"
-                    className="cadastro-continuar"
-                    onClick={() => {
-                        if (tipo === "participante" || tipo === "organizador" || tipo === "aluno") {
-                            navigate("/cadastro/email");
-                        }
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        navigate("/cadastro/email");
                     }}
                 >
-                    Continuar
-                </button>
+                    <div className="cadastro-input">
+                        {metodo === "email" ? <Mail /> : <User />}
 
-                <label className="cadastro-termos">
-                    <input type="checkbox" />
+                        <input
+                            type={metodo === "email" ? "email" : "text"}
+                            required
+                            placeholder={
+                                metodo === "email"
+                                    ? "E-mail"
+                                    : metodo === "siap"
+                                    ? "SIAP"
+                                    : "Matrícula"
+                            }
+                        />
+                    </div>
 
-                    <span>
-                        Li e concordo com os{" "}
-                        <a href="#">termos de uso de dados</a> e{" "}
-                        <a href="#">
-                            as configurações de privacidade do sistema.
-                        </a>
-                    </span>
-                </label>
+                    <div className="cadastro-metodos">
+
+                        {/* GOOGLE */}
+                        <button
+                            type="button"
+                            className="cadastro-metodo"
+                            onClick={() =>
+                                navigate("/cadastro?tipo=participante")
+                            }
+                        >
+                            <img src={google} alt="Google" />
+                        </button>
+
+                        {/* ORGANIZADOR */}
+                        <button
+                            type="button"
+                            className="cadastro-metodo"
+                            onClick={() =>
+                                navigate("/cadastro?tipo=organizador")
+                            }
+                        >
+                            <span>S</span>
+                        </button>
+
+                        {/* ALUNO */}
+                        <button
+                            type="button"
+                            className="cadastro-metodo"
+                            onClick={() =>
+                                navigate("/cadastro?tipo=aluno")
+                            }
+                        >
+                            <span>Q</span>
+                        </button>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="cadastro-continuar"
+                    >
+                        Continuar
+                    </button>
+
+                    <label className="cadastro-termos">
+                        <input type="checkbox" required />
+
+                        <span>
+                            Li e concordo com os{" "}
+                            <a href="#">termos de uso de dados</a> e{" "}
+                            <a href="#">
+                                as configurações de privacidade do sistema.
+                            </a>
+                        </span>
+                    </label>
+
+                </form>
             </div>
         </div>
     );

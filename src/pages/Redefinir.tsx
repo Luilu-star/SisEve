@@ -5,6 +5,12 @@ import "../styles/Home.css";
 function Redefinir() {
   const navigate = useNavigate();
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    navigate("/redefinicao/verificacao");
+  };
+
   return (
     <div className="redefinir-page">
       <div className="redefinir-card">
@@ -16,21 +22,25 @@ function Redefinir() {
 
         <h2>Insira o e-mail para o envio do código</h2>
 
-        <form className="redefinir-senha-input">
+        <form
+          className="redefinir-senha-input"
+          onSubmit={handleSubmit}
+        >
           <Mail />
+
           <input
+            required
             type="email"
             placeholder="E-mail"
           />
-        </form>
 
-        <button
-          type="button"
-          className="redefinir-button"
-          onClick={() => navigate("/redefinicao/verificacao")}
-        >
-          Enviar código
-        </button>
+          <button
+            type="submit"
+            className="redefinir-button"
+          >
+            Enviar código
+          </button>
+        </form>
       </div>
     </div>
   );
