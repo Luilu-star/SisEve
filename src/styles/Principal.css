@@ -104,7 +104,7 @@
 }
 
 
-/*PERFIL*/
+/*TELA PERFIL*/
 
 * {
   box-sizing: border-box;
@@ -150,14 +150,17 @@
 }
 
 .icone-usuario {
-  width: 68px;
-  height: 68px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
   stroke-width: 1.3;
 }
 
 .icone-capa {
-  width: 42px;
-  height: 42px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ESTRUTURA PRINCIPAL */
@@ -309,6 +312,7 @@
   align-items: center;
   justify-content: center;
   height: 128px;
+  overflow: hidden;
   border-bottom: 2px solid #171717;
   background-color: #ffffff;
   color: #242126;
@@ -333,6 +337,7 @@
   justify-content: center;
   width: 130px;
   height: 130px;
+  overflow: hidden;
   border: 3px solid #28623b;
   border-radius: 50%;
   background-color: #eef2ef;
@@ -474,3 +479,6 @@
   height: 18px;
   flex-shrink: 0;
 }
+
+/*============VER TODOS ===============*/
+

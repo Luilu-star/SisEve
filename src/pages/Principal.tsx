@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
 import "../styles/Principal.css";
@@ -16,6 +17,7 @@ const eventos = [
 ].map((titulo) => ({ titulo, imagem: fundo }));
 
 export default function Principal() {
+  const navigate = useNavigate();
   const [atual, setAtual] = useState(1);
 
   const n = banners.length;
@@ -52,7 +54,7 @@ export default function Principal() {
       <section className="recentes">
         <div className="titulo-recentes">
           <h1>Recentes</h1>
-          <button className="ver-todos">
+          <button className="ver-todos" onClick={() => navigate("/Vertodos")}>
             Ver todos <ArrowRight />
           </button>
         </div>

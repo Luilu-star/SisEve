@@ -49,6 +49,26 @@
   padding: 0 calc(var(--u) * 40) 0 calc(var(--u) * 34);
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
 }
+.header-edit {
+  display: flex;
+  align-items: center;
+  height: calc(var(--u) * 120);
+  padding: 0 calc(var(--u) * 40) 0 calc(var(--u) * 34);
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+.edit-topo h1 {
+  margin-left: 32px;
+  font-size: calc(var(--u) * 38);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.edit-topo .subtitulo {
+  margin-left: 32px;
+  font-size: calc(var(--u) * 20);
+  font-weight: 400;
+}
 
 /* Grupo de elementos do cabeçalho */
 .header-grupo {
@@ -248,9 +268,4 @@
 /* Permite que o texto ocupe a largura necessária */
 .menu-item.pequeno span {
   max-width: none;
-}
-
-/* Cor do item de saída */
-.menu-item.sair {
-  color: #D94C40;
 }

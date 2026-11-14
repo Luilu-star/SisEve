@@ -11,14 +11,16 @@
 }
 
 /* ===== TÍTULO + FILTRAR ===== */
+
 .espera-topo {
   display: flex;
-  align-items: center;
+  align-items: flex-end;               
   justify-content: space-between;
-  margin-bottom: calc(var(--u) * 60);
+  margin-bottom: calc(var(--u) * 20);     
 }
 
 .espera-topo h1 {
+  padding-left: calc(var(--u) * 25);     
   font-size: calc(var(--u) * 50);
   font-weight: 700;
 }
@@ -27,6 +29,7 @@
   display: flex;
   align-items: center;
   gap: calc(var(--u) * 14);
+  margin-bottom: calc(var(--u) * 20); 
   font-size: calc(var(--u) * 40);
   font-weight: 600;
 }
@@ -126,7 +129,6 @@
 .espera-sair:hover { background: #d94032; }
 
 /* ============MINHAS INSCRIÇÕES========== */
-
 .inscricoes-page {
   min-height: 100vh;
   background: #fff;
@@ -141,13 +143,13 @@
 /* ===== TÍTULO + FILTRAR ===== */
 .inscricoes-topo {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end;                  /* era center */
   justify-content: space-between;
-  margin-bottom: calc(var(--u) * 50);
+  margin-bottom: calc(var(--u) * 20);     /* era 60 */
 }
 
 .inscricoes-topo h1 {
-  padding-left: calc(var(--u) * 40);
+  padding-left: calc(var(--u) * 25);      /* novo */
   font-size: calc(var(--u) * 50);
   font-weight: 700;
 }
@@ -156,7 +158,7 @@
   display: flex;
   align-items: center;
   gap: calc(var(--u) * 14);
-  margin-bottom: calc(var(--u) * 20);
+  margin-bottom: calc(var(--u) * 20);     /* novo */
   font-size: calc(var(--u) * 40);
   font-weight: 600;
 }
@@ -176,17 +178,17 @@
 .inscricoes-lista {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: calc(var(--u) * 145);
+  column-gap: calc(var(--u) * 160);         /* era 145 */
   row-gap: calc(var(--u) * 50);
-  padding: 0 calc(var(--u) * 40);
+  padding: 0 calc(var(--u) * 22);           /* era 40 */
 }
 
 /* ===== CARD ===== */
 .inscricoes-card {
   display: flex;
-  gap: calc(var(--u) * 24);
+  gap: calc(var(--u) * 26);                 /* era 24 */
   min-width: 0;
-  padding: calc(var(--u) * 24) calc(var(--u) * 22);
+  padding: calc(var(--u) * 20) calc(var(--u) * 22);  /* era 24 vertical */
   border: 1px solid #000;
   border-radius: calc(var(--u) * 34);
   background: #fff;
@@ -201,6 +203,7 @@
 }
 
 .inscricoes-info {
+  position: relative;                       /* novo, igual à Espera */
   flex: 1;
   min-width: 0;
   display: flex;
@@ -250,7 +253,7 @@
 .inscricoes-cancelar {
   align-self: flex-end;
   margin-top: auto;
-  padding: calc(var(--u) * 10) calc(var(--u) * 20);
+  padding: calc(var(--u) * 10) calc(var(--u) * 22);  /* era 20 horizontal */
   border-radius: 999px;
   background: #e94b3c;
   color: #fff;
@@ -258,4 +261,6 @@
   font-weight: 700;
 }
 
-.inscricoes-cancelar:hover { background: #d94032; }
+.inscricoes-cancelar:hover { 
+  background: #d94032; 
+}

@@ -79,7 +79,7 @@ export default function Inscricoes() {
                   className="inscricoes-cancelar"
                   onClick={() => cancelar(i.id)}
                 >
-                  Cancelar Inscrição
+                  Cancelar
                 </button>
               </div>
             </article>

@@ -11,8 +11,10 @@ import Principal from "./pages/Principal";
 import Perfil from "./pages/Perfil";
 import Espera from "./pages/Espera";
 import Inscricoes from "./pages/Inscricoes";
+import Certificados from "./pages/Certificados";
 import Configuracoes from "./pages/Configuracoes";
 import EditPerfil from "./pages/EditPerfil";
+import VerTodos from "./pages/VerTodos";
 
 function Router() {
   return (
@@ -29,8 +31,10 @@ function Router() {
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/espera" element={<Espera />} />
         <Route path="/inscricoes" element={<Inscricoes />} />
+        <Route path="/certificados" element={<Certificados />} />
         <Route path="/configuracoes" element={<Configuracoes />} />
         <Route path="/EditPerfil" element={<EditPerfil />} />
+        <Route path="/Vertodos" element={<VerTodos />} />
       </Routes>
     </BrowserRouter>
   );

@@ -368,7 +368,6 @@
 }
 
 /* ==================== Verificação E-Mail ==================== */
-
 .verificacao-email-page {
   min-height: 100vh;
   width: 100%;
@@ -396,14 +395,11 @@
   max-width: 100%;
   min-height: 620px;
   height: auto;
-
   padding: 38px 30px;
   border: 1px solid #287640;
   border-radius: 8px;
-
   background: #dedede;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -426,7 +422,6 @@
   align-items: center;
   flex-wrap: nowrap;
   gap: 12px;
-
   width: 100%;
   margin: 0 0 24px;
 }
@@ -437,11 +432,9 @@
   min-width: 0;
   width: 61px;
   height: 68px;
-
   padding: 0;
   border: 1px solid #aaa;
   border-radius: 7px;
-
   background: #f8f8f8;
   box-sizing: border-box;
 
@@ -467,12 +460,11 @@
   border-radius: 12px;
   background: #287640;
   color: white;
-
   font-size: 22px;
   font-weight: 700;
   cursor: pointer;
-
-  margin-top: 12px;
+  margin: 45px auto 0;
+  align-self: center;
 }
 
 .verificacao-email-button:hover {

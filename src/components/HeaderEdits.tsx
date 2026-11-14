@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Menu, UserRound, Bell, Globe, ShieldCheck, CircleQuestionMark, LogOut} from "lucide-react";
+import {Menu, UserRound, Bell, Globe, ShieldCheck, CircleQuestionMark, House} from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../styles/Global.css";
@@ -8,10 +8,10 @@ import "../styles/Global.css";
 // Rotas do menu lateral
 const itensMenu = [
   { rotulo: "Perfil", Icone: UserRound, rota: "/EditPerfil" },
-  { rotulo: "Notificações", Icone: Bell, rota: "/Inscricoes" },
-  { rotulo: "Segurança", Icone: ShieldCheck, rota: "/Espera" },
-  { rotulo: "Idioma e Região", Icone: Globe, rota: "/Certificados" },
-  { rotulo: "Ajuda e Suporte", Icone: CircleQuestionMark, rota: "/Certificados" }
+  { rotulo: "Notificações", Icone: Bell, rota: "/" },
+  { rotulo: "Segurança", Icone: ShieldCheck, rota: "/" },
+  { rotulo: "Idioma e Região", Icone: Globe, rota: "/" },
+  { rotulo: "Ajuda e Suporte", Icone: CircleQuestionMark, rota: "/" }
 ];
 
 function HeaderConfig() {
@@ -63,20 +63,25 @@ function HeaderConfig() {
 
         </nav>
 
-        <button className="menu-item pequeno sair" onClick={() => irPara("/")}>
-          <LogOut />
-          <span>Sair</span>
+        <button className="menu-item pequeno sair" onClick={() => irPara("/principal")}>
+          <House />
+          <span>Início</span>
         </button>
       </aside>
 
       {/* HEADER */}
-      <header className="header">
+      <header className="header-edit">
         <div className="header-grupo">
           <button className="botao-menu" onClick={() => setMenuAberto(true)} aria-label="Abrir menu">
             <Menu />
           </button>
         </div>
-
+        <div className="edit-topo">
+          <h1>Perfil</h1>
+          <p className="subtitulo">
+            Atualize seus dados pessoais, foto de perfil e informações de contato.
+          </p>
+        </div>
       </header>
     </>
   );

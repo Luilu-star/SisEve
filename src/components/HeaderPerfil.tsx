@@ -71,10 +71,7 @@ function HeaderPerfil() {
 
           <hr />
 
-          <button
-            className="menu-item pequeno"
-            onClick={() => irPara("/configuracoes")}
-          >
+          <button className="menu-item pequeno" onClick={() => irPara("/EditPerfil")}>
             <Settings />
             <span>Configurações</span>
           </button>

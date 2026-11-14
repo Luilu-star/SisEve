@@ -46,14 +46,11 @@ function Cadastro() {
                     </div>
 
                     <div className="cadastro-metodos">
-
                         {/* GOOGLE */}
                         <button
                             type="button"
                             className="cadastro-metodo"
-                            onClick={() =>
-                                navigate("/cadastro?tipo=participante")
-                            }
+                            onClick={() => navigate("/cadastro?tipo=participante")}
                         >
                             <img src={google} alt="Google" />
                         </button>
@@ -62,9 +59,7 @@ function Cadastro() {
                         <button
                             type="button"
                             className="cadastro-metodo"
-                            onClick={() =>
-                                navigate("/cadastro?tipo=organizador")
-                            }
+                            onClick={() => navigate("/cadastro?tipo=organizador")}
                         >
                             <span>S</span>
                         </button>
@@ -73,19 +68,13 @@ function Cadastro() {
                         <button
                             type="button"
                             className="cadastro-metodo"
-                            onClick={() =>
-                                navigate("/cadastro?tipo=aluno")
-                            }
+                            onClick={() => navigate("/cadastro?tipo=aluno")}
                         >
                             <span>Q</span>
                         </button>
-
                     </div>
 
-                    <button
-                        type="submit"
-                        className="cadastro-continuar"
-                    >
+                    <button type="submit" className="cadastro-continuar">
                         Continuar
                     </button>
 
@@ -100,7 +89,6 @@ function Cadastro() {
                             </a>
                         </span>
                     </label>
-
                 </form>
             </div>
         </div>

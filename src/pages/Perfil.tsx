@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import "../styles/Principal.css";
 
-import {FileText, FileCheck, CalendarCheck2, MapPin, Clock, Download, UserRound, Image as ImageIcon} from "lucide-react";
+import {FileText, FileCheck, CalendarCheck2, MapPin, Clock, Download} from "lucide-react";
 
+import fundo from "../assets/fundo.png";
 import IFCE from "../assets/IFCE.webp";
 import HeaderPerfil from "../components/HeaderPerfil";
 
@@ -16,10 +16,16 @@ function Perfil() {
     "Certificado da Palestra sobre IA"
   ];
 
-  const usuarios = {
-    nome: "Flávio",
-    cargo: "Estudante"
-  };
+// Recupera as fotos salvas em EditPerfil
+const fotoFundo = localStorage.getItem("fotoFundo");
+const fotoPerfil = localStorage.getItem("fotoPerfil");
+
+const usuarios = {
+  nome: "S. Texeira",
+  cargo: "Estudante",
+  fotoFundo: fotoFundo || fundo,
+  fotoPerfil: fotoPerfil || IFCE
+};
 
   const eventos = [
     {
@@ -99,13 +105,13 @@ function Perfil() {
 
         <aside className="card-perfil">
           <div className="capa-perfil">
-            <ImageIcon className="icone-capa" />
+            <img className="icone-capa" src={usuarios.fotoFundo} alt="Capa do perfil" />
           </div>
 
           <div className="conteudo-perfil">
             <div className="identificacao-perfil">
               <div className="avatar-perfil">
-                <UserRound className="icone-usuario" />
+                <img className="icone-usuario" src={usuarios.fotoPerfil} alt="Foto de perfil" />
               </div>
 
               <div className="dados-usuario">
