@@ -2,7 +2,7 @@ import { useState } from "react";
 import { User, FileText, Camera, UserRound, CircleMinus, Plus } from "lucide-react";
 
 import HeaderEdits from "../components/HeaderEdits";
-import IFCE from "../assets/IFCE.webp";
+import imagemEvento from "../assets/Evento_2.png";
 import "../styles/Configuracoes.css";
 
 const TAMANHO_MAXIMO = 2 * 1024 * 1024; // 2 MB
@@ -12,6 +12,11 @@ function EditPerfil() {
     localStorage.getItem("fotoPerfil")
   );
   const [erro, setErro] = useState<string>("");
+
+  const evento = {
+    titulo: "Desafios e Perspectivas na Educação",
+    imagem: imagemEvento,
+  };
 
   function trocarFoto(e: React.ChangeEvent<HTMLInputElement>) {
     const arquivo = e.target.files?.[0];
@@ -38,7 +43,7 @@ function EditPerfil() {
 
   return (
     <div className="edit-page">
-     <HeaderEdits />
+      <HeaderEdits />
 
       <main className="edit-main">
         <div className="edit-grid">
@@ -112,7 +117,7 @@ function EditPerfil() {
               <p className="edit-foto-info">
                 Formatos aceitos: JPG, PNG ou WEBP.
                 <br />
-                Tamanho máximo: 2MB   
+                Tamanho máximo: 2MB
               </p>
 
               {erro && <p className="erro-foto">{erro}</p>}
@@ -122,18 +127,36 @@ function EditPerfil() {
               <h3>Eventos a mostra</h3>
 
               <div className="edit-evento">
-                <img src={IFCE} alt="Evento" />
-                <span>Desafios e Perspectivas na Educação</span>
-                <button type="button" className="botao-remover" aria-label="Remover evento">
+                <img
+                  className="edit-evento-imagem"
+                  src={evento.imagem}
+                  alt={evento.titulo}
+                />
+
+                <div className="edit-evento-info">
+                  <span className="edit-evento-titulo">{evento.titulo}</span>
+                </div>
+
+                <button
+                  type="button"
+                  className="botao-remover"
+                  aria-label={`Remover ${evento.titulo}`}
+                >
                   <CircleMinus />
                 </button>
               </div>
 
               <div className="edit-evento">
-                <button type="button" className="edit-evento-add" aria-label="Adicionar evento">
+                <button
+                  type="button"
+                  className="edit-evento-add"
+                  aria-label="Adicionar evento"
+                >
                   <Plus />
                 </button>
-                <span>Adicione um novo evento ao perfil</span>
+                <span className="edit-evento-titulo">
+                  Adicione um novo evento ao perfil
+                </span>
               </div>
             </div>
           </aside>

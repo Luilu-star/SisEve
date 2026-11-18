@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Menu, Search, Bell, UserRound,House, CalendarClock, CircleCheckBig, FileText, Settings, LogOut} from "lucide-react";
+import {Menu, Search, Bell, UserRound, House, CalendarClock, CircleCheckBig, FileText, Settings, LogOut} from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../styles/Global.css";
@@ -13,7 +13,17 @@ const itensMenu = [
   { rotulo: "Meus Certificados", Icone: FileText, rota: "/Certificados" }
 ];
 
-function Header() {
+// Props opcionais: só a tela que quiser usar a pesquisa do header precisa passá-las.
+// As demais telas continuam usando <Header /> exatamente como antes.
+interface HeaderProps {
+  busca?: string;
+  onBuscaChange?: (valor: string) => void;
+}
+
+function Header({ busca, onBuscaChange }: HeaderProps) {
+  // Foto salva em EditPerfil (null se ainda não existir)
+  const fotoPerfil = localStorage.getItem("fotoPerfil");
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [menuAberto, setMenuAberto] = useState(false);
@@ -47,7 +57,7 @@ function Header() {
         </div>
 
         <nav>
-          {itensMenu.map(({ rotulo, Icone, rota }) => (
+          {itensMenu.map(({ rotulo, rota, Icone }) => (
             <button
               key={rota}
               className={pathname === rota ? "menu-item ativo" : "menu-item"}
@@ -85,14 +95,24 @@ function Header() {
 
         <div className="header-grupo">
           <label className="campo-pesquisa">
-            <input type="text" placeholder="Pesquisar..." />
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              // Controlado só quando a tela passa onBuscaChange; senão, fica como antes
+              value={onBuscaChange ? busca ?? "" : undefined}
+              onChange={onBuscaChange ? (e) => onBuscaChange(e.target.value) : undefined}
+            />
             <Search />
           </label>
           <button className="icone-header" aria-label="Notificações">
             <Bell />
           </button>
           <button className="perfil" onClick={() => navigate("/perfil")} aria-label="Perfil">
-            <UserRound />
+            {fotoPerfil ? (
+              <img className="icone-usuario" src={fotoPerfil} alt="Foto de perfil" />
+            ) : (
+              <UserRound />
+            )}
           </button>
         </div>
       </header>

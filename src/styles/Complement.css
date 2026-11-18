@@ -10,7 +10,7 @@
 }
 
 .pagina-todos .todos {
-  padding: calc(var(--u) * 24) calc(var(--u) * 60) calc(var(--u) * 60);
+  padding: calc(var(--u) * 24) calc(var(--u) * 100) calc(var(--u) * 60);
 }
 
 /* ===== TÍTULO + ORDENAÇÃO ===== */
@@ -111,21 +111,21 @@
 .pagina-todos .grade-eventos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: calc(var(--u) * 40);
+  gap: calc(var(--u) * 28);
 }
 
 .pagina-todos .evento-card {
-  aspect-ratio: 5 / 3;
-  border-radius: calc(var(--u) * 28);
+  aspect-ratio: 16 / 9;
+  border-radius: calc(var(--u) * 14);
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 calc(var(--u) * 2) calc(var(--u) * 10) rgb(0 0 0 / 0.1);
+  box-shadow: 0 1px calc(var(--u) * 5) rgb(0 0 0 / 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pagina-todos .evento-card:hover {
-  transform: translateY(calc(var(--u) * -4));
-  box-shadow: 0 calc(var(--u) * 10) calc(var(--u) * 22) rgb(0 0 0 / 0.16);
+  transform: translateY(calc(var(--u) * -3));
+  box-shadow: 0 calc(var(--u) * 6) calc(var(--u) * 16) rgb(0 0 0 / 0.14);
 }
 
 .pagina-todos .evento-card img {

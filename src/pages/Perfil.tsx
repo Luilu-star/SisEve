@@ -55,7 +55,7 @@ const usuarios = {
             </h1>
 
             <ul className="lista-certificados">
-              {certificados.map((certificado, index) => (
+              {certificados.map((certificado) => (
                 <li className="item-certificado" key={certificado}>
                   <FileCheck className="icone-certificado" />
 
@@ -64,8 +64,7 @@ const usuarios = {
                   </a>
 
                   <button
-                    className="botao-download"
-                    onClick={() => alert(`Download do certificado ${index + 1}`)}
+                    className="botao-download"               
                   >
                     <Download className="icone-download" />
                     Baixar Certificado

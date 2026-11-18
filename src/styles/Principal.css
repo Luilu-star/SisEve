@@ -1,7 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 /* ===== BASE DA PÁGINA ===== */
 /* As variáveis (--u, --verde, --claro, --card) e o reset de botões
    ficam no Header.css */
 .home {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
   background: #fff;
@@ -46,7 +52,11 @@
 .indicador.ativo { background: #3f4642; }
 
 /* ===== RECENTES ===== */
-.recentes { padding: calc(var(--u) * 48) calc(var(--u) * 53) calc(var(--u) * 30); }
+/* flex: 1 faz a seção ocupar o resto da altura da tela (sem sobra em branco) */
+.home .recentes {
+  flex: 1;
+  padding: calc(var(--u) * 48) calc(var(--u) * 53) calc(var(--u) * 30);
+}
 
 .titulo-recentes {
   display: flex;
@@ -95,7 +105,7 @@
   .banner { flex-basis: 84vw; }
   .indicadores { margin-top: 14px; }
 
-  .recentes { padding: 20px 16px 28px; }
+  .home .recentes { padding: 20px 16px 28px; }
   .titulo-recentes h1 { margin: 0; font-size: 22px; }
   .ver-todos { --i: 16; font-size: 15px; }
 
@@ -104,48 +114,58 @@
 }
 
 
-/*TELA PERFIL*/
+/* ===================================================== */
+/* TELA PERFIL                                           */
+/* ===================================================== */
 
-* {
-  box-sizing: border-box;
-}
-
+/*
+  ESCALA DO DESIGN
+  O layout do Figma tem 1512px de largura. A variável --pu (só do Perfil; o Header continua usando o --u dele) equivale a "1px do Figma"
+  e cresce/diminui junto com a largura da tela, mantendo exatamente as mesmas
+  proporções da imagem em qualquer monitor.
+  Todos os números abaixo (calc(var(--pu) * N)) são os px medidos no Figma.
+*/
 .pagina-perfil {
+  --pbase: clamp(0.72px, 0.06614vw, 1.5px);
+  --pu: var(--pbase);
+
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background-color: #ffffff;
   color: #080808;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 /* ÍCONES */
 
 .icone-menu {
-  width: 36px;
-  height: 36px;
+  width: calc(var(--pu) * 30);
+  height: calc(var(--pu) * 30);
 }
 
 .icone-titulo {
-  width: 36px;
-  height: 36px;
+  width: calc(var(--pu) * 28);
+  height: calc(var(--pu) * 28);
   flex-shrink: 0;
 }
 
 .icone-certificado {
-  width: 32px;
-  height: 32px;
+  width: calc(var(--pu) * 24);
+  height: calc(var(--pu) * 24);
   flex-shrink: 0;
   stroke-width: 1.5;
 }
 
 .icone-evento {
-  width: 20px;
-  height: 20px;
+  width: calc(var(--pu) * 20);
+  height: calc(var(--pu) * 20);
   flex-shrink: 0;
 }
 
 .icone-download {
-  width: 23px;
-  height: 23px;
+  width: calc(var(--pu) * 20);
+  height: calc(var(--pu) * 20);
   flex-shrink: 0;
 }
 
@@ -164,21 +184,30 @@
 }
 
 /* ESTRUTURA PRINCIPAL */
+/* flex: 1 + align-content: center → o conteúdo ocupa a altura da tela e fica
+   centralizado na vertical, sem sobrar um bloco vazio embaixo */
 
-.conteudo-principal {
+.pagina-perfil .conteudo-principal {
+  flex: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.95fr);
-  gap: 7.5%;
+  grid-template-columns: calc(var(--pu) * 642) calc(var(--pu) * 507);
+  column-gap: calc(var(--pu) * 104);
+  justify-content: start;
   align-items: start;
-  margin: 0 auto;
-  padding: 0 6.1% 40px;
+  align-content: center;
+  margin: 0;
+  padding: 0 0 calc(var(--pu) * 40) calc(var(--pu) * 87);
 }
 
 .coluna-esquerda {
+  /* Escala só dos cards da esquerda: 0.88 = 88% do design (use 1 para o tamanho original) */
+  --pu: calc(var(--pbase) * 0.88);
+
+  width: calc(var(--pu) * 642);
   display: flex;
   flex-direction: column;
-  gap: 46px;
-  padding-top: 8px;
+  gap: calc(var(--pu) * 42);
+  padding-top: 0;
   min-width: 0;
 }
 
@@ -187,9 +216,10 @@
 .titulo-secao {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 0 0 32px;
-  font-size: 35px;
+  gap: calc(var(--pu) * 10);
+  margin: 0 0 calc(var(--pu) * 38);
+  font-size: calc(var(--pu) * 26);
+  line-height: 1.2;
   font-weight: 700;
 }
 
@@ -197,38 +227,39 @@
 
 .card-certificados,
 .card-eventos {
-  width: 90%;
-  padding: 22px;
-  border: 2px solid #171717;
-  border-radius: 17px;
+  width: 100%;
+  border: calc(var(--pu) * 1.5) solid #171717;
+  border-radius: calc(var(--pu) * 22);
   background-color: #ffffff;
 }
 
 .card-certificados {
-  min-height: 347px;
+  padding: calc(var(--pu) * 22) calc(var(--pu) * 19) calc(var(--pu) * 39);
+  min-height: 0;
 }
 
 .lista-certificados {
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: calc(var(--pu) * 28);
   margin: 0;
-  padding: 0 8px;
+  padding: 0 calc(var(--pu) * 24) 0 calc(var(--pu) * 10);
   list-style: none;
 }
 
 .item-certificado {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) auto;
+  grid-template-columns: calc(var(--pu) * 24) minmax(0, 1fr) calc(var(--pu) * 173);
   align-items: center;
-  gap: 13px;
+  gap: calc(var(--pu) * 13);
+  height: calc(var(--pu) * 36);
 }
 
 .link-certificado {
   color: #28623b;
-  font-size: 19px;
+  font-size: calc(var(--pu) * 17);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
   text-decoration: underline;
 }
 
@@ -236,13 +267,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 11px 13px;
+  gap: calc(var(--pu) * 8);
+  width: 100%;
+  height: calc(var(--pu) * 36);
+  padding: 0;
   border: none;
-  border-radius: 17px;
+  border-radius: calc(var(--pu) * 18);
   background-color: #28623b;
   color: #ffffff;
-  font-size: 15px;
+  font-size: calc(var(--pu) * 14);
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
@@ -256,54 +289,67 @@
 /* PRÓXIMOS EVENTOS */
 
 .card-eventos {
-  min-height: 300px;
+  padding: calc(var(--pu) * 22) calc(var(--pu) * 19) calc(var(--pu) * 23);
+  min-height: 0;
 }
 
 .card-eventos .titulo-secao {
-  margin-bottom: 25px;
+  margin-bottom: calc(var(--pu) * 28);
 }
 
-.lista-eventos {
+/* escopo .card-eventos: evita que esse padding afete a lista da tela Principal */
+.card-eventos .lista-eventos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: calc(var(--pu) * 37);
   align-items: stretch;
+  padding: 0 calc(var(--pu) * 16) 0 calc(var(--pu) * 21);
 }
 
 .evento {
   min-width: 0;
-  padding: 15px;
-  border: 1px solid #b9d4c0;
-  border-radius: 12px;
-  background-color: #f6fff9;
+  padding: calc(var(--pu) * 12) calc(var(--pu) * 11) calc(var(--pu) * 24);
+  border: calc(var(--pu) * 1.5) solid #28623b;
+  border-radius: calc(var(--pu) * 10);
+  background-color: #f3f3f3;
 }
 
 .evento h2 {
-  margin: 0 0 12px;
-  color: #28623b;
-  font-size: 21px;
+  margin: 0 0 calc(var(--pu) * 13);
+  color: #111111;
+  font-size: calc(var(--pu) * 15);
+  font-weight: 600;
+  line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
 .evento p {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 8px 0;
+  gap: calc(var(--pu) * 4);
+  height: calc(var(--pu) * 20);
+  margin: 0 0 calc(var(--pu) * 12);
   color: #414141;
-  font-size: 16px;
+  font-size: calc(var(--pu) * 13);
+}
+
+.evento p:last-of-type {
+  margin-bottom: 0;
 }
 
 /* PAINEL DO PERFIL */
 
 .card-perfil {
-  width: 90%;
-  transform: translateY(-36px);
-  height: 105%;
+  /* Escala só do painel: 0.88 = 88% do tamanho do design (use 1 para o tamanho original) */
+  --pu: calc(var(--pbase) * 0.88);
+
+  width: calc(var(--pu) * 507);
+  margin-top: calc(var(--pbase) * -45);   /* mais negativo = mais alto; 0 = alinhado com os cards da esquerda */
+  margin-left: calc(var(--pbase) * 40);   /* empurra o card para a direita */
   min-width: 0;
   overflow: hidden;
-  border: 2px solid #171717;
-  border-radius: 27px;
+  border: calc(var(--pu) * 1.5) solid #171717;
+  border-radius: calc(var(--pu) * 28);
   background-color: #ecfff7;
 }
 
@@ -311,23 +357,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 128px;
+  height: calc(var(--pu) * 140);
   overflow: hidden;
-  border-bottom: 2px solid #171717;
+  border-bottom: calc(var(--pu) * 1.5) solid #171717;
   background-color: #ffffff;
   color: #242126;
 }
 
 .conteudo-perfil {
-  padding: 0 35px 20px;
+  padding: 0 calc(var(--pu) * 22) calc(var(--pu) * 30) calc(var(--pu) * 36);
 }
 
 .identificacao-perfil {
   display: flex;
-  align-items: center;
-  gap: 22px;
-  margin-top: -66px;
-  margin-bottom: 27px;
+  align-items: flex-start;
+  gap: calc(var(--pu) * 18);
+  margin-top: calc(var(--pu) * -55);
+  margin-bottom: calc(var(--pu) * 21);
+  margin-left: calc(var(--pu) * -9);
 }
 
 .avatar-perfil {
@@ -335,10 +382,10 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 130px;
-  height: 130px;
+  width: calc(var(--pu) * 112);
+  height: calc(var(--pu) * 112);
   overflow: hidden;
-  border: 3px solid #28623b;
+  border: calc(var(--pu) * 1.5) solid #28623b;
   border-radius: 50%;
   background-color: #eef2ef;
   color: #28623b;
@@ -346,42 +393,49 @@
 
 .dados-usuario {
   min-width: 0;
-  padding-top: 65px;
+  padding-top: calc(var(--pu) * 78);
 }
 
 .dados-usuario h2 {
-  margin: 0 0 4px;
-  font-size: 27px;
+  margin: 0 0 calc(var(--pu) * 4);
+  font-size: calc(var(--pu) * 24);
+  line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
 .dados-usuario p {
   margin: 0;
   color: #898f8c;
-  font-size: 24px;
+  font-size: calc(var(--pu) * 20);
+  line-height: 1.2;
 }
 
 /* DESCRIÇÃO */
 
 .secao-descricao {
-  margin-bottom: 38px;
+  margin-bottom: calc(var(--pu) * 36);
 }
 
 .secao-descricao h3,
 .secao-participados h3 {
-  margin: 0 0 22px;
-  font-size: 24px;
+  margin: 0 0 calc(var(--pu) * 6);
+  font-size: calc(var(--pu) * 22);
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .campo-descricao {
-  width: 100%;
-  height: 132px;
-  padding: 12px;
-  border: 1px solid #b5d4c1;
-  border-radius: 12px;
+  display: block;
+  width: calc(100% - var(--pu) * 7);
+  height: calc(var(--pu) * 190);
+  margin-left: calc(var(--pu) * -5);
+  padding: calc(var(--pu) * 12);
+  border: 1px solid #a9bfb0;
+  border-radius: calc(var(--pu) * 10);
   background-color: #f8fffb;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-family: inherit;
+  font-size: calc(var(--pu) * 19);
+  line-height: 1.35;
   resize: none;
   outline: none;
 }
@@ -403,25 +457,26 @@
 }
 
 .secao-participados h3 {
-  margin-bottom: 16px;
+  margin-bottom: calc(var(--pu) * 12);
 }
 
 .imagens-eventos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  width: 100%;
+  gap: calc(var(--pu) * 32);
+  width: calc(100% + var(--pu) * 5);
+  margin-left: calc(var(--pu) * -5);
 }
 
 .imagem-evento {
   display: block;
   width: 100%;
-  height: 145px;
+  height: calc(var(--pu) * 128);
   min-width: 0;
   padding: 0;
-  border: 2px solid #b9d4c0;
-  border-radius: 16px;
-  object-fit: cover;
+  border: calc(var(--pu) * 3) solid #b9d4c0;
+  border-radius: calc(var(--pu) * 14);
+  object-fit: contain;
   background-color: #ffffff;
 }
 
@@ -444,13 +499,13 @@
 
 .popup {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + var(--pu) * 10);
   right: 0;
   z-index: 1000;
-  width: 210px;
-  padding: 8px;
+  width: calc(var(--pu) * 190);
+  padding: calc(var(--pu) * 6);
   border: 1px solid #dddddd;
-  border-radius: 8px;
+  border-radius: calc(var(--pu) * 8);
   background-color: #ffffff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
@@ -458,15 +513,15 @@
 .popup button {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: calc(var(--pu) * 10);
   width: 100%;
-  padding: 11px 10px;
+  padding: calc(var(--pu) * 9) calc(var(--pu) * 10);
   border: none;
   border-radius: 5px;
   background: transparent;
   color: #333333;
   text-align: left;
-  font-size: 14px;
+  font-size: calc(var(--pu) * 14);
   cursor: pointer;
 }
 
@@ -475,10 +530,7 @@
 }
 
 .popup button svg {
-  width: 18px;
-  height: 18px;
+  width: calc(var(--pu) * 16);
+  height: calc(var(--pu) * 16);
   flex-shrink: 0;
 }
-
-/*============VER TODOS ===============*/
-

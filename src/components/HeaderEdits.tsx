@@ -44,7 +44,6 @@ function HeaderConfig() {
           <button className="botao-menu" onClick={() => setMenuAberto(false)} aria-label="Fechar menu">
             <Menu />
           </button>
-          <span className="Sis">Sis<span className="Eve">Eve</span></span>
         </div>
 
         <nav>
@@ -63,7 +62,7 @@ function HeaderConfig() {
 
         </nav>
 
-        <button className="menu-item pequeno sair" onClick={() => irPara("/principal")}>
+        <button className="menu-item pequeno" onClick={() => irPara("/principal")}>
           <House />
           <span>Início</span>
         </button>

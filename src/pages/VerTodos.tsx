@@ -24,12 +24,26 @@ const eventos = [
 const ordenacoes = ["Relevância", "Mais recentes", "A – Z"] as const;
 type Ordenacao = (typeof ordenacoes)[number];
 
+// Remove acentos e ignora maiúsculas/minúsculas ("Inclusão" → "inclusao")
+const normalizar = (texto: string) =>
+  texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+
 export default function VerTodos() {
   const navigate = useNavigate();
   const [ordem, setOrdem] = useState<Ordenacao>("Relevância");
   const [menuAberto, setMenuAberto] = useState(false);
 
-  const lista = [...eventos].sort((a, b) => {
+  // Texto do campo de pesquisa do Header (a busca acontece nesta própria tela)
+  const [busca, setBusca] = useState("");
+  const palavras = normalizar(busca).split(/\s+/).filter(Boolean);
+
+  // Todas as palavras digitadas precisam aparecer no nome do evento
+  const encontrados = eventos.filter((e) => {
+    const nome = normalizar(e.titulo);
+    return palavras.every((p) => nome.includes(p));
+  });
+
+  const lista = [...encontrados].sort((a, b) => {
     if (ordem === "A – Z") return a.titulo.localeCompare(b.titulo, "pt-BR");
     if (ordem === "Mais recentes") return b.id - a.id;
     return a.id - b.id; // Relevância
@@ -38,7 +52,7 @@ export default function VerTodos() {
   return (
     <div className="pagina-todos">
 
-      <Header />
+      <Header busca={busca} onBuscaChange={setBusca} />
 
       <section className="todos">
         <div className="titulo-todos">
@@ -79,13 +93,19 @@ export default function VerTodos() {
           </div>
         </div>
 
-        <div className="grade-eventos">
-          {lista.map((e) => (
-            <div className="evento-card" key={e.id}>
-              <img src={e.imagem} alt={e.titulo} />
-            </div>
-          ))}
-        </div>
+        {lista.length === 0 ? (
+          <p style={{ fontSize: "calc(var(--u) * 26)", padding: "calc(var(--u) * 40) 0" }}>
+            Nenhum evento encontrado para “{busca.trim()}”.
+          </p>
+        ) : (
+          <div className="grade-eventos">
+            {lista.map((e) => (
+              <div className="evento-card" key={e.id}>
+                <img src={e.imagem} alt={e.titulo} />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
     </div>

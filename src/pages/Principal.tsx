@@ -24,7 +24,7 @@ export default function Principal() {
   const posicoes = [(atual - 1 + n) % n, atual, (atual + 1) % n];
 
   return (
-    <div className="home">
+    <main className="home">
 
       <Header />
 
@@ -68,6 +68,6 @@ export default function Principal() {
         </div>
       </section>
 
-    </div>
+    </main>
   );
 }

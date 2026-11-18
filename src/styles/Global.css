@@ -166,6 +166,7 @@
   border-radius: 50%;
 }
 
+
 /* ===== FUNDO DO MENU LATERAL ===== */
 .menu-fundo {
   position: fixed;
@@ -268,4 +269,7 @@
 /* Permite que o texto ocupe a largura necessária */
 .menu-item.pequeno span {
   max-width: none;
+}
+.sair {
+  color: #d94c40;
 }
