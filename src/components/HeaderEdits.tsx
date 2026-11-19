@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Menu, UserRound, Bell, Globe, ShieldCheck, CircleQuestionMark, House} from "lucide-react";
+import {Menu, UserRound, Bell, Globe, ShieldCheck, CircleQuestionMark, ChevronLeft} from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "../styles/Global.css";
@@ -62,8 +62,8 @@ function HeaderConfig() {
 
         </nav>
 
-        <button className="menu-item pequeno" onClick={() => irPara("/principal")}>
-          <House />
+        <button className="menu-item pequeno inicio" onClick={() => irPara("/principal")}>
+          <ChevronLeft />
           <span>Início</span>
         </button>
       </aside>

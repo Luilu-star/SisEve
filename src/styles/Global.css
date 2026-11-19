@@ -189,7 +189,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: min(calc(var(--u) * 408), 86vw);
-  padding: 0 calc(var(--u) * 18) calc(var(--u) * 35);
+  padding: 0 calc(var(--u) * 18) calc(var(--u) * 312) calc(var(--u) * 18);
   background: #fff;
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   box-shadow: calc(var(--u) * 4) 0 calc(var(--u) * 14) rgb(0 0 0 / 0.18);
@@ -262,7 +262,7 @@
 /* ===== ITENS MENORES DO MENU ===== */
 .menu-item.pequeno {
   --i: 30;
-  margin-bottom: 0;
+  margin-bottom: calc(var(--u) * 28);
   font-size: calc(var(--u) * 24);
 }
 
@@ -270,6 +270,12 @@
 .menu-item.pequeno span {
   max-width: none;
 }
+.menu-item.pequeno.inicio {
+  position: relative;
+  top: calc(var(--u) * 308);
+}
 .sair {
   color: #d94c40;
+  position: relative;
+  top: calc(var(--u) * 308);
 }
